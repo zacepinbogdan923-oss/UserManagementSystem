@@ -1,33 +1,14 @@
 using System;
 
-namespace UserManagementSystem;
-
-internal class Program
+namespace UserManagementSystem
 {
-    private static void Main()
+    class Program
     {
-        var manager = new UserManager();
-
-        Console.WriteLine("=== User Management System ===");
-
-        manager.AddUser("alice");
-        manager.AddUser("bob");
-
-        Console.WriteLine("Пользователи после добавления:");
-        foreach (string user in manager.GetUsers())
+        static void Main(string[] args)
         {
-            Console.WriteLine($"- {user}");
+            var manager = new UserManager();
+            manager.AddUser("test");
+            Console.WriteLine(manager.RemoveUser("test")); // Должно вывести True
         }
-
-        bool removed = manager.RemoveUser("alice");
-        Console.WriteLine($"Удаление пользователя alice: {removed}");
-
-        Console.WriteLine("Пользователи после удаления:");
-        foreach (string user in manager.GetUsers())
-        {
-            Console.WriteLine($"- {user}");
-        }
-
-        Console.WriteLine($"Попытка удалить отсутствующего пользователя: {manager.RemoveUser("unknown")}");
     }
 }
