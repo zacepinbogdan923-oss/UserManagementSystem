@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-
 namespace UserManagementSystem
 {
     public class UserManager
@@ -8,6 +7,11 @@ namespace UserManagementSystem
         public void AddUser(string username)
         {
             _users.Add(username);
+        }
+
+        public bool RemoveUser(string username)
+        {
+            return _users.Remove(username);
         }
     }
 }
